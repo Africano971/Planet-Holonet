@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -635,7 +635,7 @@
     100%{ transform:translate(-3px,2px); filter:hue-rotate(-20deg); }
   }
 
-  /* ---------- panel "intercepted transmission" (ex secret page) ---------- */
+  /* ---------- panneau "transmission interceptée" (ex-page secrète) ---------- */
   #secret-overlay{
     --line: rgba(255,85,85,0.25);
     position:fixed; inset:0; z-index:110;
@@ -772,15 +772,15 @@
 <!-- ===================== ÉCRAN "TOUCHER POUR ÉTABLIR LA CONNEXION" ===================== -->
 <div id="tap-screen">
   <div class="tap-icon"></div>
-  <div class="tap-text">Tap to establish connection</div>
+  <div class="tap-text">Toucher pour établir la connexion</div>
 </div>
 
 <!-- ===================== ÉCRAN CARNET DE VOYAGE ===================== -->
 <div id="welcome">
   <div class="welcome-box">
     <div class="welcome-check">✔</div>
-    <div class="welcome-status">Flight clearance granted</div>
-    <div class="welcome-message" id="welcome-message">Welcome to Kijimi</div>
+    <div class="welcome-status">Autorisation de vol validée</div>
+    <div class="welcome-message" id="welcome-message">Bienvenue à Kijimi</div>
     <div class="travel-log" id="travel-log"></div>
   </div>
 </div>
@@ -794,7 +794,7 @@
 <div id="boot">
   <div class="boot-console">
     <div class="boot-header">
-      <span>HOLO-NET // SECURE CHANNEL</span>
+      <span>HOLO-NET // CANAL SÉCURISÉ</span>
       <span id="boot-clock">00:00:00</span>
     </div>
     <div class="boot-lines" id="boot-lines"></div>
@@ -804,49 +804,49 @@
 
 <!-- ===================== OVERLAY EFFET DE BUG ===================== -->
 <div id="glitch-overlay">
-  <div class="glitch-text">TRANSMISSION INTERCEPTED</div>
+  <div class="glitch-text">TRANSMISSION INTERCEPTÉE</div>
 </div>
 
-<!-- ===================== PANNEAU "TRANSMISSION INTERCEPTED" ===================== -->
+<!-- ===================== PANNEAU "TRANSMISSION INTERCEPTÉE" ===================== -->
 <div id="secret-overlay">
   <div class="secret-bg-grid"></div>
   <div class="secret-wrap">
-    <div class="secret-header"><span><span class="dot"></span>UNAUTHORIZED SIGNAL DETECTED</span><span id="secret-clock">00:00:00</span></div>
+    <div class="secret-header"><span><span class="dot"></span>SIGNAL NON AUTORISÉ CAPTÉ</span><span id="secret-clock">00:00:00</span></div>
 
-    <h1>TRANSMISSION INTERCEPTED</h1>
-    <div class="secret-subtitle">Source: informal Thieves' Quarter network — Kijimi · File integrity: partial</div>
+    <h1>TRANSMISSION INTERCEPTÉE</h1>
+    <div class="secret-subtitle">Origine : réseau informel du Quartier des Voleurs — Kijimi · Intégrité du fichier : partielle</div>
 
     <div class="secret-doc">
-      <div class="secret-doc-label">Fragment 01 — Shift foreman's log, Kessel</div>
-      <p>« ...glitterstim is harvested from the webs spun by shadow-spiders, deep within the galleries. Any prolonged exposure to light destroys its psychic properties — down here, everything happens in total darkness. »</p>
-      <p>« The slaves working these galleries rarely come out unharmed. The <span class="secret-redacted">Pyke Syndicate</span> considers that an acceptable loss, as long as extraction quotas are met. »</p>
+      <div class="secret-doc-label">Fragment 01 — Journal d'un contremaître des galeries, Kessel</div>
+      <p>« ...le glitterstim se prélève dans les toiles tissées par les araignées des ombres, au plus profond des galeries. Toute exposition prolongée à la lumière détruit ses propriétés psychiques — ici, tout se joue dans le noir complet. »</p>
+      <p>« Les esclaves qui travaillent ces galeries n'en ressortent que rarement indemnes. Le <span class="secret-redacted">Syndicat Pyke</span> considère ça comme une perte acceptable, tant que les quotas d'extraction sont tenus. »</p>
     </div>
 
     <div class="secret-doc">
-      <div class="secret-doc-label">Fragment 02 — Intercepted transfer note</div>
-      <p>« Since the Empire's fall, no one protects the spice lanes anymore. The Mining Guild, the Hutt clans, Imperial authority — all withdrew. The Pyke Syndicate still controls distribution, but its grip is crumbling under gangs encroaching on its territory. »</p>
-      <p>« Every shipment out of Kessel passes through three anonymous intermediaries before reaching Kijimi, so no name can ever be traced back to the source. »</p>
+      <div class="secret-doc-label">Fragment 02 — Note de transfert interceptée</div>
+      <p>« Depuis la chute de l'Empire, plus personne ne protège les routes de l'épice. Guilde Minière, clans Hutts, autorité impériale : tous se sont retirés. Le Syndicat Pyke tient encore la distribution, mais son emprise s'effrite face aux gangs qui mordent sur son territoire. »</p>
+      <p>« Chaque cargaison en provenance de Kessel transite par trois intermédiaires anonymes avant d'atteindre Kijimi, pour qu'aucun nom ne remonte jamais jusqu'à la source. »</p>
     </div>
 
     <div class="secret-doc">
-      <div class="secret-doc-label">Fragment 03 — Thieves' Quarter registry, Kijimi City</div>
-      <p>« Kijimi isn't just a logistics stop — this is where the goods truly change hands. The Spice Runners of Kijimi have held the upper quarter for two generations, mother to daughter — from Zeva Bliss to her daughter, <span class="secret-redacted">Zorii Bliss</span>, now at their head. »</p>
-      <p>« She never removes her golden helmet in public. Even her own men don't know the face beneath it. »</p>
+      <div class="secret-doc-label">Fragment 03 — Registre du Quartier des Voleurs, Kijimi City</div>
+      <p>« Kijimi n'est pas qu'une étape logistique : c'est ici que la marchandise change vraiment de main. Les Spice Runners de Kijimi tiennent le haut du quartier depuis deux générations, de mère en fille — de Zeva Bliss à sa fille, <span class="secret-redacted">Zorii Bliss</span>, aujourd'hui à leur tête. »</p>
+      <p>« Elle ne retire jamais son casque doré en public. Même ses propres hommes ignorent le visage qu'il dissimule. »</p>
     </div>
 
     <div class="secret-doc">
-      <div class="secret-doc-label">Fragment 04 — Surveillance report, origin unconfirmed</div>
-      <p>« ...a Star Destroyer entered low orbit above the capital without warning. Officially, a law enforcement operation. Unofficially, they're looking for something specific — someone mentioned a vault, a dagger, a map. »</p>
-      <p>« Ground patrols are questioning Thieves' Quarter merchants one by one. This time, it isn't spice they're after. »</p>
-      <p>[SIGNAL JAMMED — INCREASED SURVEILLANCE DETECTED]</p>
+      <div class="secret-doc-label">Fragment 04 — Rapport de surveillance, origine non confirmée</div>
+      <p>« ...un Destroyer stellaire est entré en orbite basse au-dessus de la capitale, sans préavis. Officiellement, une opération de maintien de l'ordre. Officieusement, ils cherchent quelque chose de précis — quelqu'un a parlé d'un coffre, d'une dague, d'une carte. »</p>
+      <p>« Les patrouilles au sol interrogent les commerçants du Quartier des Voleurs un par un. Cette fois, ce n'est pas l'épice qu'ils cherchent. »</p>
+      <p>[SIGNAL BROUILLÉ — SURVEILLANCE ACCRUE DÉTECTÉE]</p>
     </div>
 
     <div class="secret-footer-note">
-      This transmission should not exist.<br>
-      Reconnect to the official Holonet network to continue your journey.
+      Cette transmission ne devrait pas exister.<br>
+      Reconnectez-vous au réseau Holonet officiel pour poursuivre votre voyage.
     </div>
 
-    <button type="button" class="secret-back-btn" id="secret-back-btn">← Restore secure connection</button>
+    <button type="button" class="secret-back-btn" id="secret-back-btn">← Rétablir la connexion sécurisée</button>
   </div>
 </div>
 
@@ -855,63 +855,63 @@
 
   <div class="hero-row">
     <div class="hero-text">
-      <div class="eyebrow">Holonet Transmission · Destination Confirmed</div>
+      <div class="eyebrow">Transmission Holonet · Destination confirmée</div>
       <h1 class="planet-name">Kijimi</h1>
       
-      <div class="designation">Bryx Sector · Mid Rim · Outlaw Haven</div>
+      <div class="designation">Secteur Bryx · Bordure Médiane · Refuge hors-la-loi</div>
     </div>
     <div class="holo-planet">
       <div class="ring r2"></div>
       <div class="orb"></div>
       <div class="ring r3"></div>
-      <div class="tag">ORBITAL VIEW</div>
+      <div class="tag">VUE ORBITALE</div>
     </div>
   </div>
 
-  <div class="status-pill">✔ Traveler Cleared</div>
+  <div class="status-pill">✔ Voyageur autorisé</div>
 
   <hr class="div">
 
   <div class="grid-data">
     <div class="data-cell">
-      <div class="label">Climate</div>
-      <div class="value amber">Frigid</div>
+      <div class="label">Climat</div>
+      <div class="value amber">Glacial</div>
     </div>
     <div class="data-cell">
-      <div class="label">Main Settlement</div>
+      <div class="label">Établissement principal</div>
       <div class="value">Kijimi City</div>
     </div>
     <div class="data-cell">
-      <div class="label">Government</div>
-      <div class="value">Anarchy · Rival clans and guilds</div>
+      <div class="label">Gouvernement</div>
+      <div class="value">Anarchie · Clans et guildes rivaux</div>
     </div>
   </div>
 
   <hr class="div">
 
-  <div class="section-title">Recommended Sites</div>
+  <div class="section-title">Sites recommandés</div>
   <ul class="locations">
     <li>
       <span class="idx">01</span>
-      <div><b>Kijimi City</b><span class="desc">City perched atop Mount Izukika, dominated by the Thieves' Quarter and its rival guilds.</span></div>
+      <div><b>Kijimi City</b><span class="desc">Cité perchée au sommet du mont Izukika, dominée par le Quartier des Voleurs et ses guildes rivales.</span></div>
     </li>
     <li>
       <span class="idx">02</span>
-      <div><b>Babu Frik's Workshop</b><span class="desc">Renowned shop for "special" droid modifications, run by a legendary Anzellan droidsmith.</span></div>
+      <div><b>Atelier de Babu Frik</b><span class="desc">Officine réputée pour ses modifications de droïdes « spéciales », tenue par un droïdesmith anzellan légendaire.</span></div>
     </li>
     <li>
       <span class="idx">03</span>
-      <div><b>Dai Bendu Monastery</b><span class="desc">Remnants of the city's founding spiritual orders, now occupied by smugglers.</span></div>
+      <div><b>Monastère Dai Bendu</b><span class="desc">Vestiges des ordres spirituels fondateurs de la ville, aujourd'hui investis par les contrebandiers.</span></div>
     </li>
   </ul>
 
   <div class="transmission">
-    « Bundle up, traveler — Kijimi's cold shows no mercy. »
+    « Couvrez-vous bien, voyageur — le froid de Kijimi ne fait pas de quartier. »
   </div>
 
   <footer>
-    <span>Flight Cleared — Holonet Network</span>
-    <span>Signal received from Batuu</span>
+    <span>Vol autorisé — Réseau Holonet</span>
+    <span>Signal reçu depuis Batuu</span>
   </footer>
 
 </main>
@@ -982,12 +982,13 @@
   function playSound(key){
     const el = sounds[key];
     if (!el) return;
-    // A real playback is requested for this sound: cancel any pending
-    // "unlock" for it (see unlockAllAudio), so a slow network doesn't
-    // mistake this real playback for the silent unlock and cut it off.
+    // Une vraie lecture est demandée pour ce son : on annule le
+    // "déverrouillage" en attente le concernant (voir unlockAllAudio),
+    // pour qu'un réseau lent ne vienne pas couper cette lecture réelle
+    // en la confondant avec le déverrouillage silencieux du tap initial.
     audioUnlockPending[key] = false;
     el.currentTime = 0;
-    el.play().catch(() => { /* playback blocked or file missing: ignore */ });
+    el.play().catch(() => { /* lecture bloquée ou fichier absent : on ignore */ });
   }
 
   /* ============================================================
@@ -1020,13 +1021,13 @@
       el.muted = true;
       const p = el.play();
       const restore = () => {
-        // If a real playback has already been requested in the meantime
-        // (slow network on first load), leave this element alone instead
-        // of pausing the real playback that's now underway.
+        // Si une vraie lecture a déjà été demandée entre-temps (réseau
+        // lent au premier chargement), on ne touche plus à cet élément :
+        // on laisse la vraie lecture suivre son cours au lieu de la couper.
         if (!audioUnlockPending[key]) return;
         el.pause();
         el.currentTime = 0;
-        el.muted = muted; // respects the visitor's current sound preference
+        el.muted = muted; // respecte la préférence son actuelle du visiteur
       };
       if (p && p.catch) {
         p.then(restore).catch(restore);
@@ -1040,11 +1041,11 @@
      ÉTAPE 2 — séquence de chargement (existante)
      ============================================================ */
   const bootMessages = [
-    { text: "CONNECTING TO HOLONET", tag: "..." },
-    { text: "TRIANGULATING SIGNAL", tag: "OK" },
-    { text: "DECRYPTING CHANNEL", tag: "OK" },
-    { text: "DESTINATION LOCATED", tag: "KIJIMI" },
-    { text: "LOADING PLANETARY FILE", tag: "..." },
+    { text: "CONNEXION AU RÉSEAU HOLONET", tag: "..." },
+    { text: "TRIANGULATION DU SIGNAL", tag: "OK" },
+    { text: "DÉCRYPTAGE DU CANAL", tag: "OK" },
+    { text: "DESTINATION LOCALISÉE", tag: "KIJIMI" },
+    { text: "CHARGEMENT DU DOSSIER PLANÉTAIRE", tag: "..." },
   ];
 
   const linesEl = document.getElementById('boot-lines');
@@ -1109,7 +1110,7 @@
   function showWelcome(){
     const visitedBefore = getVisited().includes(PLANET_SLUG);
     document.getElementById('welcome-message').textContent =
-      visitedBefore ? `Welcome back to ${PLANET_LABEL}` : `Welcome to ${PLANET_LABEL}`;
+      visitedBefore ? `Bon retour à ${PLANET_LABEL}` : `Bienvenue à ${PLANET_LABEL}`;
 
     // marque la planète actuelle comme visitée pour les prochains scans
     markVisited(PLANET_SLUG);
@@ -1204,6 +1205,10 @@
     document.body.classList.add('glitch-active');
     document.getElementById('glitch-overlay').classList.add('active');
     setTimeout(() => {
+      // On n'utilise plus de redirection : la navigation ferait perdre le
+      // droit de lecture audio accordé au tap initial. On bascule donc
+      // simplement l'affichage vers le panneau "transmission interceptée",
+      // qui reste sur la même page.
       document.body.classList.remove('glitch-active');
       document.getElementById('glitch-overlay').classList.remove('active');
       pageEl.classList.remove('reveal');

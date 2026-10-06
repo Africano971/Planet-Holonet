@@ -584,13 +584,13 @@
 <div class="scanline"></div>
 
 <!-- ===================== AUDIO =====================
-     boot-access.mp3 et startours-jingle.mp3 sont partagés entre toutes les
-     planètes (même expérience de chargement / transition). ambient-tatooine.mp3
-     est un placeholder — remplace-le par le son d'ambiance propre à tatooine
-     une fois choisi. Tant qu'un fichier n'existe pas, la lecture échoue
-     silencieusement (aucune erreur visible pour le visiteur). -->
+     Les 3 sons (boot-access, startours-jingle, ambient) sont partagés
+     par toutes les planètes qui n'ont pas d'easter egg propre — même
+     fichier audio/ambient-scarif.mp3 pour l'ambiance de fond partout.
+     Tant qu'un fichier n'existe pas, la lecture échoue silencieusement
+     (aucune erreur visible pour le visiteur). -->
 <audio id="snd-boot" src="audio/boot-access.mp3" preload="none"></audio>
-<audio id="snd-ambient" src="audio/ambient-tatooine.mp3" preload="none" loop></audio>
+<audio id="snd-ambient" src="audio/ambient-scarif.mp3" preload="none" loop></audio>
 <audio id="snd-startours" src="audio/startours-jingle.mp3" preload="none"></audio>
 
 <!-- ===================== BOUTON SON ===================== -->
@@ -739,9 +739,16 @@
     updateSoundBtn();
   });
 
+  const audioUnlockPending = {};
+
   function playSound(key){
     const el = sounds[key];
     if (!el) return;
+    // Une vraie lecture est demandée pour ce son : on annule le
+    // "déverrouillage" en attente le concernant (voir unlockAllAudio),
+    // pour qu'un réseau lent ne vienne pas couper cette lecture réelle
+    // en la confondant avec le déverrouillage silencieux du tap initial.
+    audioUnlockPending[key] = false;
     el.currentTime = 0;
     el.play().catch(() => { /* lecture bloquée ou fichier absent : on ignore */ });
   }
@@ -754,9 +761,43 @@
   const tapScreen = document.getElementById('tap-screen');
   tapScreen.addEventListener('click', () => {
     tapScreen.classList.add('hide');
+    unlockAllAudio();
     playSound('boot');
     startBoot();
   }, { once:true });
+
+  // iOS (Safari/Chrome) n'autorise la lecture programmée d'un son que si elle
+  // est déclenchée directement par un geste utilisateur. Un son lancé plus
+  // tard via setTimeout (comme le jingle Star Tours ou l'ambiance) serait
+  // bloqué silencieusement. On "déverrouille" donc tous les éléments audio
+  // ici, en même temps que le tap, en les lançant puis en les mettant en
+  // pause immédiatement — ils pourront ensuite être rejoués sans restriction.
+  function unlockAllAudio(){
+    Object.entries(sounds).forEach(([key, el]) => {
+      if (!el || key === 'boot') return;
+      // Coupe le son AVANT de lancer play(), sinon le début de la piste
+      // joue réellement (et s'entend) pendant le court instant où l'on
+      // attend que la promesse de lecture se résolve avant de la mettre
+      // en pause.
+      audioUnlockPending[key] = true;
+      el.muted = true;
+      const p = el.play();
+      const restore = () => {
+        // Si une vraie lecture a déjà été demandée entre-temps (réseau
+        // lent au premier chargement), on ne touche plus à cet élément :
+        // on laisse la vraie lecture suivre son cours au lieu de la couper.
+        if (!audioUnlockPending[key]) return;
+        el.pause();
+        el.currentTime = 0;
+        el.muted = muted; // respecte la préférence son actuelle du visiteur
+      };
+      if (p && p.catch) {
+        p.then(restore).catch(restore);
+      } else {
+        restore();
+      }
+    });
+  }
 
   /* ============================================================
      ÉTAPE 2 — séquence de chargement
