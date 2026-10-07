@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>HOLONET // COUNTDOWN</title>
+<style>
+  @font-face {
+    font-family: 'Aurebesh';
+    src: url('Fonts/Aurebesh%20Bold.ttf') format('truetype');
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    overflow: hidden;
+  }
+
+  .wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+  }
+
+  .target-label {
+    font-family: monospace;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: #83E8FF;
+    opacity: 0.75;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  .units {
+    display: flex;
+    gap: 3vw;
+  }
+
+  .unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .value {
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 6vw;
+    color: #FFAA71;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label {
+    font-family: 'Aurebesh', monospace;
+    font-size: 1.3vw;
+    color: #83E8FF;
+    margin-top: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+
+  .sep {
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 6vw;
+    color: #244a5c;
+    align-self: flex-start;
+    margin-top: -0.2vw;
+  }
+
+  .footer {
+    margin-top: 3rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #3d6b7d;
+    letter-spacing: 0.2em;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="target-label">04 . 05 . 2027 — 09H30 — OUVERTURE</div>
+
+  <div class="units" id="units">
+    <div class="unit"><div class="value" id="v-months">00</div><div class="label">mois</div></div>
+    <div class="sep">:</div>
+    <div class="unit"><div class="value" id="v-days">00</div><div class="label">jours</div></div>
+    <div class="sep">:</div>
+    <div class="unit"><div class="value" id="v-hours">00</div><div class="label">heures</div></div>
+    <div class="sep">:</div>
+    <div class="unit"><div class="value" id="v-minutes">00</div><div class="label">minutes</div></div>
+    <div class="sep">:</div>
+    <div class="unit"><div class="value" id="v-seconds">00</div><div class="label">secondes</div></div>
+  </div>
+
+  <div class="footer">... transmission autorisee ...</div>
+</div>
+
+<script>
+  // Cible : 4 mai 2027, 9h30, heure de Paris (CEST = UTC+2 en mai)
+  var target = new Date("2027-05-04T09:30:00+02:00");
+
+  function pad(n) {
+    return String(n).padStart(2, "0");
+  }
+
+  function update() {
+    var now = new Date();
+    var temp = new Date(now.getTime());
+
+    var months = (target.getFullYear() - now.getFullYear()) * 12
+               + (target.getMonth() - now.getMonth());
+
+    temp.setMonth(temp.getMonth() + months);
+    if (temp > target) {
+      months -= 1;
+      temp.setMonth(temp.getMonth() - 1);
+    }
+
+    var remainderMs = target - temp;
+    if (remainderMs < 0) remainderMs = 0;
+    if (months < 0) months = 0;
+
+    var days = Math.floor(remainderMs / 86400000);
+    remainderMs -= days * 86400000;
+    var hours = Math.floor(remainderMs / 3600000);
+    remainderMs -= hours * 3600000;
+    var minutes = Math.floor(remainderMs / 60000);
+    remainderMs -= minutes * 60000;
+    var seconds = Math.floor(remainderMs / 1000);
+
+    document.getElementById("v-months").textContent = pad(months);
+    document.getElementById("v-days").textContent = pad(days);
+    document.getElementById("v-hours").textContent = pad(hours);
+    document.getElementById("v-minutes").textContent = pad(minutes);
+    document.getElementById("v-seconds").textContent = pad(seconds);
+  }
+
+  update();
+  setInterval(update, 1000);
+</script>
+
+</body>
+</html>
